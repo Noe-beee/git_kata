@@ -9,7 +9,7 @@ def clean_data(df):
     and converting categorical columns to lowercase.
     """
     
-    df = df.dropna(how="all") 
+    df = df.dropna(subset=['pclass','survived','sex']) 
     categorical_cols = df.select_dtypes(include="object").columns
     df[categorical_cols] = df[categorical_cols].apply(lambda col: col.str.lower())
     return df
